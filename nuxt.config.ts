@@ -1,5 +1,3 @@
-import tailwindcss from "@tailwindcss/vite";
-
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
@@ -16,11 +14,5 @@ export default defineNuxtConfig({
       // Use environment variable when available, otherwise fallback to TheMealDB sample API
       apiBaseUrl: process.env.API_BASE_URL || 'https://www.themealdb.com/api/json/v1/1'
     }
-  },
-  
-  vite: {
-    plugins: [
-      tailwindcss(),
-    ],
   },
 });
