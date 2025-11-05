@@ -1,6 +1,6 @@
 # Restaurant Website - Nuxt 4
 
-A modern restaurant website built with Nuxt 4, Vue 3, and Tailwind CSS. Features a complete food ordering system with shopping cart and checkout functionality.
+A modern restaurant website built with Nuxt 4, Vue 3, and pure CSS utilities. Features a complete food ordering system with shopping cart and checkout functionality.
 
 ## 🌟 Features
 
@@ -10,14 +10,14 @@ A modern restaurant website built with Nuxt 4, Vue 3, and Tailwind CSS. Features
 - **Checkout**: Complete order form with customer details and payment options
 - **Real-time API**: Integration with TheMealDB API for meal data
 - **Persistent Cart**: Cart data saved in localStorage using Pinia
-- **Responsive Design**: Mobile-first design with Tailwind CSS
+- **Responsive Design**: Mobile-first design with custom CSS utilities
 - **Smooth Animations**: Cart drawer with slide transitions and notifications
 
 ## 🛠️ Tech Stack
 
 - **Framework**: Nuxt 4.2.0
 - **Frontend**: Vue 3.5.22
-- **Styling**: Tailwind CSS v4 with @tailwindcss/vite
+- **Styling**: Pure CSS with custom utility classes (CSS Variables + responsive utilities)
 - **State Management**: Pinia with persistence plugin
 - **API**: TheMealDB (https://www.themealdb.com)
 - **Build Tool**: Vite 7.1.12
@@ -28,7 +28,8 @@ A modern restaurant website built with Nuxt 4, Vue 3, and Tailwind CSS. Features
 app/
 ├── assets/
 │   └── css/
-│       └── main.css           # Tailwind CSS imports
+│       ├── variables.css       # CSS custom properties (colors, spacing, etc.)
+│       └── main.css            # Utility classes and component styles
 ├── components/
 │   └── CartDrawer.vue          # Shopping cart drawer component
 ├── composables/
@@ -149,11 +150,39 @@ netlify deploy --prod
 
 ## 🎨 Customization
 
+### CSS Architecture
+The project uses a custom CSS utility system similar to Tailwind but pure CSS:
+
+**CSS Variables** (`assets/css/variables.css`):
+- Color palette (primary orange, grays)
+- Spacing scale (xs, sm, md, lg, xl, 2xl, 3xl)
+- Typography scale (xs to 5xl)
+- Border radius values
+- Shadow definitions
+- Transition timings
+- Z-index layers
+
+**Utility Classes** (`assets/css/main.css`):
+- Layout: container, grid, flexbox
+- Spacing: padding (p-*), margin (m-*), gap
+- Typography: text sizes, weights, alignment
+- Colors: text-*, bg-*, hover states
+- Buttons: btn-primary, btn-secondary
+- Forms: input, select, textarea with focus states
+- Responsive: md:, lg:, xl: breakpoints
+
 ### Colors
-Main colors are defined in Tailwind config and used throughout:
-- Primary: Orange (500, 600)
-- Background: Gray (50)
-- Text: Gray (700, 800)
+Main colors defined in `variables.css`:
+```css
+--color-primary: #f97316;        /* Orange 500 */
+--color-primary-dark: #ea580c;   /* Orange 600 */
+--color-gray-*: ...              /* Gray scale */
+```
+
+Used throughout with utilities:
+- `.bg-orange-500`, `.text-orange-600`
+- `.hover:bg-orange-600`
+- `.bg-primary`, `.text-primary`
 
 ### Pricing
 Default price: Rp 45.000 per meal
@@ -189,7 +218,6 @@ Created as a restaurant website assignment project.
 
 - [TheMealDB](https://www.themealdb.com) for the free meal API
 - [Nuxt](https://nuxt.com) for the amazing framework
-- [Tailwind CSS](https://tailwindcss.com) for the styling utilities
 - [Pinia](https://pinia.vuejs.org) for state management
 
 
