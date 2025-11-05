@@ -86,13 +86,112 @@ Build the application for production:
 
 ```bash
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
+
+Preview production build locally:
+```bash
+pnpm preview
+```
+
+## 📦 Deployment
+
+### Deploy to Vercel
+
+1. Push your code to GitHub
+2. Go to [Vercel](https://vercel.com)
+3. Import your repository
+4. Vercel will auto-detect Nuxt and deploy
+
+Or use Vercel CLI:
+```bash
+npm i -g vercel
+vercel
+```
+
+### Deploy to Netlify
+
+1. Build the project:
+```bash
+pnpm build
+```
+
+2. Deploy the `.output/public` directory to Netlify
+
+Or use Netlify CLI:
+```bash
+npm i -g netlify-cli
+netlify deploy --prod
+```
+
+## 🎯 Key Features Explained
+
+### Cart Drawer Component
+- Slide-in from right side on any page
+- Real-time cart updates with Pinia
+- Quantity controls with +/- buttons
+- Remove items functionality
+- Price calculation with 10% tax
+- Smooth animations with Vue transitions
+
+### API Integration
+- Custom composable `useApi()` for clean API calls
+- Endpoints:
+  - `/categories.php` - Get all meal categories
+  - `/filter.php?c={category}` - Get meals by category
+  - `/search.php?s={query}` - Search meals by name
+  - `/lookup.php?i={id}` - Get meal details
+
+### State Management
+- Pinia store with TypeScript interfaces
+- Persistent cart using `@pinia-plugin-persistedstate`
+- Reactive computed values for totals
+- Notification system with DOM manipulation
+
+## 🎨 Customization
+
+### Colors
+Main colors are defined in Tailwind config and used throughout:
+- Primary: Orange (500, 600)
+- Background: Gray (50)
+- Text: Gray (700, 800)
+
+### Pricing
+Default price: Rp 45.000 per meal
+To change, modify in `stores/cart.ts`:
+```ts
+price: 45000, // Change this value
+```
+
+## 📝 API Data Source
+
+This project uses [TheMealDB API](https://www.themealdb.com/api.php):
+- Free tier with 1 request per second
+- Returns meal data with images, categories, and ingredients
+- No authentication required
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 👨‍💻 Author
+
+Created as a restaurant website assignment project.
+
+## 🙏 Acknowledgments
+
+- [TheMealDB](https://www.themealdb.com) for the free meal API
+- [Nuxt](https://nuxt.com) for the amazing framework
+- [Tailwind CSS](https://tailwindcss.com) for the styling utilities
+- [Pinia](https://pinia.vuejs.org) for state management
+
 
 Locally preview production build:
 
